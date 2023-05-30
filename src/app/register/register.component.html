@@ -1,0 +1,66 @@
+<app-succes-message [message]="successMessage"></app-succes-message>
+<div id="main-wrapper" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Instagram</h3>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="username">Nombre de usuario</label>
+                                        <input type="email" class="form-control" name="username" id="username"
+                                            [(ngModel)]="registerRequest.username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email"
+                                            [(ngModel)]="registerRequest.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Telefono</label>
+                                        <input type="number" class="form-control" id="email" name="email"
+                                            [(ngModel)]="registerRequest.tlf">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Contaseña</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            name="exampleInputPassword1" [(ngModel)]="registerRequest.password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword2">Repetir contaseña</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2"
+                                            name="exampleInputPassword2" [(ngModel)]="password2">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"
+                                        (click)="register()">Registrarse</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block" id="foto">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+            <p class="text-muted text-center mt-3 mb-0">¿Ya tienes cuenta? <a href="login.html"
+                    class="text-primary ml-1">Login</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>

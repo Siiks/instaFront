@@ -1,0 +1,40 @@
+<app-header-layout></app-header-layout>
+<div id="main-wrapper" class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Instagram</h3>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Nombre de usuario</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" name="username"
+                                            [(ngModel)]="loginRequest.username">
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label for="exampleInputPassword1">Contaseña</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            name="password" [(ngModel)]="loginRequest.password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-inline-block" id="foto">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-muted text-center mt-3 mb-0">¿No tienes cuenta? <a href="register"
+                    class="text-primary ml-1">Registrarse</a></p>
+        </div>
+    </div>
+</div>
