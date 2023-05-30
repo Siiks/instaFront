@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { SuccesMessageComponent } from './succes-message/succes-message.component';
 import { FormsModule } from '@angular/forms';
+import { ErrorMessageComponent } from './error-message/error-message.component';
+import { HomeComponent } from './home/home.component';
+import { SettingsComponent } from './settings/settings.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HeaderLayoutComponent,
     RegisterComponent,
-    SuccesMessageComponent
+    SuccesMessageComponent,
+    ErrorMessageComponent,
+    HomeComponent,
+    SettingsComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

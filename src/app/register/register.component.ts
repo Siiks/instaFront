@@ -10,8 +10,9 @@ import { RegisterRequest } from '../models/user';
 export class RegisterComponent implements OnInit {
 
   registerRequest: RegisterRequest;
-  successMessage: string;
-  password2: string;
+  successMessage: string = '';
+  password2: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService) {
     this.registerRequest = {
@@ -20,8 +21,6 @@ export class RegisterComponent implements OnInit {
       tlf: null,
       username: null
     }
-    this.successMessage = '';
-    this.password2 = '';
   }
 
   ngOnInit(): void {
@@ -30,7 +29,8 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.successMessage = '';
-    if(this.password2 != this.registerRequest.password){
+    this.errorMessage = '';
+    if (this.password2 != this.registerRequest.password) {
       this.successMessage = "Las contraseñas no coinciden"
       return;
     }
@@ -38,5 +38,8 @@ export class RegisterComponent implements OnInit {
       .then(res => {
         this.successMessage = res;
       })
+      .catch(error => {
+        this.errorMessage = error.message;
+      });
   }
 }

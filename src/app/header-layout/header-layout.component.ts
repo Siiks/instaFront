@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-layout',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderLayoutComponent {
 
+  constructor(private authService: AuthService,
+    private router: Router){}
+
+    logout() {
+      this.authService.logout();
+      localStorage.removeItem('token');
+      this.router.navigate(['login']);
+    }
 }
