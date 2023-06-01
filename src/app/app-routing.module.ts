@@ -8,12 +8,12 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '/' },
+  { path: '**', redirectTo: '' },
 
 ];
 

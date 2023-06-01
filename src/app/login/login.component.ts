@@ -30,16 +30,15 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginRequest)
       .then(res => {
         localStorage.setItem('token', res.token)
-        this.router.navigate(['home']);
+        localStorage.setItem('user_id', res.id)
+        this.router.navigate(['home'])
+          .then(() => {
+            window.location.reload();
+          });
       })
       .catch(err => {
         this.errorMessage = err.message;
       })
   }
 
-  logout() {
-    this.authService.logout();
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-  }
 }

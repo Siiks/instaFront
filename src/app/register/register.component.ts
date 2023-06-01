@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { RegisterRequest } from '../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
   password2: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private router: Router) {
     this.registerRequest = {
       email: null,
       password: null,
@@ -29,17 +31,17 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.successMessage = '';
-    this.errorMessage = '';
     if (this.password2 != this.registerRequest.password) {
-      this.successMessage = "Las contraseñas no coinciden"
+      this.errorMessage = "Las contraseñas no coinciden"
       return;
     }
     this.authService.register(this.registerRequest)
-      .then(res => {
+      .then((res: any) => {
         this.successMessage = res;
+        this.router.navigate(['']);
       })
-      .catch(error => {
-        this.errorMessage = error.message;
-      });
+      .catch((err) => {
+        this.errorMessage = err.message;
+      })
   }
 }

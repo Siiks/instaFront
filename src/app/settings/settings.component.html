@@ -1,104 +1,92 @@
+<app-succes-message [message]="successMessage" ></app-succes-message>
 <div class="container-xl px-4 mt-4">
   <nav class="nav nav-borders">
-      <a class="nav-link" (click)="mostrarAjustes = false">Perfil</a>
-      <a class="nav-link" (click)="mostrarAjustes = true">Ajustes</a>
+    <a class="nav-link" (click)="mostrarAjustes = false">Perfil</a>
+    <a class="nav-link" (click)="mostrarAjustes = true">Ajustes</a>
   </nav>
   <hr class="mt-0 mb-4">
   <div class="row" id="perfil" *ngIf="!mostrarAjustes">
-      <div class="col-xl-4">
-          <div class="card mb-4 mb-xl-0">
-              <div class="card-header">Foto de perfil</div>
-              <div class="card-body text-center">
-                  <img class="img-account-profile rounded-circle mb-2" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/3.jpeg" alt="">
-                  <button class="btn btn-primary" type="button">Subir nueva imagen</button>
-              </div>
-          </div>
+    <div class="col-xl-4">
+      <div class="card mb-4 mb-xl-0">
+        <div class="card-header">Foto de perfil</div>
+        <div class="card-body text-center">
+          <img class="img-account-profile rounded-circle mb-2"
+            src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/3.jpeg" alt="">
+          <button class="btn btn-primary" type="button">Subir nueva imagen</button>
+        </div>
       </div>
-      <div class="col-xl-8">
-          <div class="card mb-4">
-              <div class="card-header">Account Details</div>
-              <div class="card-body">
-                  <form>
-                      <div class="mb-3">
-                          <label class="small mb-1" for="inputUsername">Nombre de usuario</label>
-                          <input class="form-control" id="inputUsername" type="text" placeholder="Nombre de usuario">
-                      </div>
-                      <div class="row gx-3 mb-3">
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputFirstName">Nombre</label>
-                              <input class="form-control" id="inputFirstName" type="text" placeholder="Nombre">
-                          </div>
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputLastName">Apellido</label>
-                              <input class="form-control" id="inputLastName" type="text" placeholder="Apellido">
-                          </div>
-                      </div>
-                      <div class="row gx-3 mb-3">
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputOrgName">Biografia</label>
-                              <input class="form-control" id="inputOrgName" type="text" placeholder="Biografia">
-                          </div>
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputLocation">Numero de telefono</label>
-                              <input class="form-control" id="inputLocation" type="text" placeholder="Numero de telefono">
-                          </div>
-                      </div>
-                      <div class="mb-3">
-                          <label class="small mb-1" for="inputEmailAddress">Sexo</label>
-                          <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address">
-                      </div>
-                      <button class="btn btn-primary" type="button">Guardar cambios</button>
-                  </form>
+    </div>
+    <div class="col-xl-8">
+      <div class="card mb-4">
+        <div class="card-header">Account Details</div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label class="small mb-1" for="email">Email</label>
+              <input class="form-control" id="email" name="email" type="text" placeholder="Nombre de usuario"
+                [(ngModel)]=user.email>
+            </div>
+            <div class="row gx-3 mb-3">
+              <div class="col-md-6">
+                <label class="small mb-1" for="nombre">Nombre de usuario</label>
+                <input class="form-control" id="nombre" disabled name="nombre" type="text" placeholder="Nombre"
+                  [(ngModel)]=user.username>
               </div>
-          </div>
+              <div class="col-md-6">
+                <label class="small mb-1" for="tlf">Numero de telefono</label>
+                <input class="form-control" id="tlf" type="text" name="tlf" placeholder="Numero de telefono"
+                  [(ngModel)]=user.tlf>
+              </div>
+            </div>
+            <button class="btn btn-primary" (click)="edit()">Guardar cambios</button>
+          </form>
+        </div>
       </div>
+    </div>
   </div>
 
   <div class="d-flex" id="ajustes" *ngIf="mostrarAjustes">
     <div class="container-xl mt-3">
-        <hr class="mt-0 mb-4">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card card-header-actions mb-4">
-                    <div class="card-header">
-                        Ajustes
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputNotificationEmail">Email</label>
-                                <input class="form-control" id="inputNotificationEmail" type="email"
-                                    value="name@example.com" disabled="">
-                            </div>
-                            <div class="mb-0">
-                                <label class="small mb-2">Choose which types of email updates you receive</label>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" id="checkAccountChanges" type="checkbox"
-                                        checked="">
-                                    <label class="form-check-label" for="checkAccountCh anges">Cuenta
-                                        privada</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" id="checkAccountGroups" type="checkbox"
-                                        checked="">
-                                    <label class="form-check-label" for="checkAccountGroups">Mostrar estado de
-                                        actividad</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" id="checkProductUpdates" type="checkbox"
-                                        checked="">
-                                    <label class="form-check-label" for="checkProductUpdates">Story sharing</label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" id="checkProductNew" type="checkbox" checked="">
-                                    <label class="form-check-label" for="checkProductNew">Añadir fotos en las que
-                                        apareces</label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+      <hr class="mt-0 mb-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card card-header-actions mb-4">
+            <div class="card-header">
+              Ajustes
             </div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label class="small mb-1" for="inputNotificationEmail">Email</label>
+                  <input class="form-control" id="inputNotificationEmail" type="email" value="name@example.com"
+                    disabled="">
+                </div>
+                <div class="mb-0">
+                  <label class="small mb-2">Choose which types of email updates you receive</label>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" id="checkAccountChanges" type="checkbox" checked="">
+                    <label class="form-check-label" for="checkAccountCh anges">Cuenta
+                      privada</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" id="checkAccountGroups" type="checkbox" checked="">
+                    <label class="form-check-label" for="checkAccountGroups">Mostrar estado de
+                      actividad</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" id="checkProductUpdates" type="checkbox" checked="">
+                    <label class="form-check-label" for="checkProductUpdates">Story sharing</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" id="checkProductNew" type="checkbox" checked="">
+                    <label class="form-check-label" for="checkProductNew">Añadir fotos en las que
+                      apareces</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
